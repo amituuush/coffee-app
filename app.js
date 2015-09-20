@@ -1,17 +1,9 @@
-$(document).ready(function() {
-
-	$('button').click(function(event) {
-		$('#results').html('');
-		var userSearch = $('input[type="text"]').val();
-	})
-
-});
-
 var map;
 var service;
 var infowindow;
 
 function initialize() {
+	console.log("here");
   var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
 
   map = new google.maps.Map(document.getElementById('results'), {
@@ -38,3 +30,24 @@ function callback(results, status) {
     }
   }
 }
+
+$(document).ready(function() {
+
+	var userSearch;
+
+	$('button').click(function(event) {
+		$('#results').html('');
+		var userSearch = $('input[type="text"]').val();
+		google.maps.event.addDomListener(window, 'load', initialize);
+		console.log(userSearch);
+	})
+
+});
+
+
+
+
+
+
+
+
